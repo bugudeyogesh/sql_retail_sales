@@ -1,8 +1,28 @@
-SELECT * FROM retail_sales ;
+CREATE DATABASE project_p1;
 
-use project_1;
 
-SELECT COUNT(*) FROM retail_sales;
+USE project_1;
+
+-- Create TABLE
+DROP TABLE IF EXISTS retail_sales;
+CREATE TABLE retail_sales
+            (
+                transaction_id INT PRIMARY KEY,	
+                sale_date DATE,	 
+                sale_time TIME,	
+                customer_id	INT,
+                gender	VARCHAR(15),
+                age	INT,
+                category VARCHAR(15),	
+                quantity	INT,
+                price_per_unit FLOAT,	
+                cogs	FLOAT,
+                total_sale FLOAT
+            );SELECT * FROM retail_sales ;
+
+
+SELECT COUNT(*) FROM retail_sales LIMIT &;
+
 
 SELECT * FROM retail_sales 
 WHERE traNsactions_id IS NULL
@@ -17,12 +37,19 @@ OR price_per_unit IS NULL
 OR cogs IS NULL
 OR total_sale IS NULL;
 
+--DATA EXPLORATION
 
+--How many sales we have?
 SELECT COUNT(*) AS total_sale FROM retail_sales;
 
+
+--How many UNIQUE customers we have?
 SELECT COUNT(DISTINCT customer_id) AS total_sale FROM retail_sales;
 
 SELECT DISTINCT category AS total_sale FROM retail_sales;
+
+-- Data Analysis and Business Key Problems & Answerws
+
 
  -- Q.1 Write a SQL query to retrieve all columns for sales made on '2022-11-05'
  
@@ -109,3 +136,5 @@ FROM (
     FROM retail_sales
 ) AS hourly_sale
 GROUP BY shift;
+
+-- End of Project
