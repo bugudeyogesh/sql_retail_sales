@@ -4,7 +4,6 @@ CREATE DATABASE project_p1;
 USE project_1;
 
 -- Create TABLE
-DROP TABLE IF EXISTS retail_sales;
 CREATE TABLE retail_sales
             (
                 transaction_id INT PRIMARY KEY,	
